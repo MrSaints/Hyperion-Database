@@ -19,6 +19,8 @@ defined('HYPERION') or die('No direct script access.');
  *
  * @package		Hyperion
  * @subpackage	Database
+ *
+ * @todo		Optimise CRUD methods
  */
 class MySQLi_DBAL implements Database
 {
