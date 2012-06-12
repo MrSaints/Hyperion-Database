@@ -171,11 +171,11 @@ class MySQLi_DBAL implements Database
 		$data = array_merge($update, array_values($where));
 
 		// Build SET statement
-		$update_query = rtrim(implode('=?,', array_keys($update)), ',');
+		$update_query = implode('=?,', array_keys($update));
 		$update_query .= '=?';
 
 		// Build WHERE statement
-		$condition_query = rtrim(implode('=?,', array_keys($where)), ',');
+		$condition_query = implode('=?,', array_keys($where));
 		$condition_query .= '=?';
 
 		// (Optional) Build LIMIT statement
@@ -186,7 +186,7 @@ class MySQLi_DBAL implements Database
 		}
 
 		$query = "UPDATE `{$table}` SET {$update_query} WHERE {$condition_query} {$limit_query}";
-
+		var_dump($query);
 		$this->prepare($query, $data, $formats)->execute();
 		return $this;
 	}
