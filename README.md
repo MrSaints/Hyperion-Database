@@ -3,6 +3,7 @@ Hyperion Database
 
 A modern, experimental, object-oriented (My)SQL database abstraction layer with a CRUD interface written in PHP.
 I do not guarantee an unparalleled DBAL performance nor will I promise a well-documented source code.
+This database package was originally written for an experimental [Hyperion Engine](http://hion.trawl.in) branch to replace the legacy MySQL driver class.
 
 Key Principles
 --------------
