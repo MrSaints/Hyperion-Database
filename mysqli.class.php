@@ -85,7 +85,7 @@ class MySQLi_DBAL implements Database
 	/*
 		Prepared INSERT statement
 
-		insert (
+		create (
 			table_name,
 			array(
 				'insert_column_name' => $insert_value
