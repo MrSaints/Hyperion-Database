@@ -28,10 +28,10 @@ class MySQLi_DBAL implements Database
 	private $reflection;
 	private $result;
 
-	public function __construct ($host, $username, $password, $database)
+	public function __construct ($host, $username, $password, $database, $autocommit = true)
 	{
 		try {
-			$this->connect($host, $username, $password, $database);
+			$this->connect($host, $username, $password, $database, $autocommit);
 			
 			/*
 			 * @link http://www.php.net/manual/en/intro.reflection.php
@@ -51,14 +51,22 @@ class MySQLi_DBAL implements Database
 		return false;
 	}
 
-	public function connect ($host, $username, $password, $database)
+	public function connect ($host, $username, $password, $database, $autocommit = true)
 	{
 		$this->instance = new mysqli($host, $username, $password, $database);
+
+		if (!$autocommit)
+			$this->instance->autocommit(false);
 
 		if ($this->instance->connect_error)
 			throw new Exception($this->instance->connect_error);
 
 		return $this->instance;
+	}
+
+	public function commit ()
+	{
+		return $this->instance->commit();
 	}
 
 	public function execute ($terminate = true)
