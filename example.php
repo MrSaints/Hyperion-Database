@@ -10,7 +10,7 @@ include 'Adapter/MySQLi_Adapter.php';
 /*
  * Database connection
  */
-$database = new Hion\Database\Core('127.0.0.1', 'root', '', 'pockyms');
+$database = new Hion\Database\Core('127.0.0.1', 'root', 'password', 'schema');
 
 /*
  * PHP MySQL adapter/driver
