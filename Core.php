@@ -50,9 +50,9 @@ class Core
 		return $this;
 	}
 
-	public function where ($column, $operator = '=', $value, $format = 'string', $suffix = '')
+	public function where ($column, $operator = '=', $value, $format = 'string', $prefix = '')
 	{
-		$this->conditions[] = array("{$suffix} `{$column}` {$operator} ?", $value);
+		$this->conditions[] = array("{$prefix} `{$column}` {$operator} ?", $value);
 		$this->formats[] = $format;
 
 		return $this;
